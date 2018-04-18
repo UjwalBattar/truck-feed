@@ -9,11 +9,35 @@
 // 37.7532161931827, -122.44207530175782
 // let mapLat = 37.774929;
 // let mapLng = -122.419416;
-let coords = [];
-const url = "https://data.sfgov.org/resource/6a9r-agq8.json?&&&&";
+
+function fetchCarts() {
+  searchOptions.push("facilitytype=Push Cart");
+  getData(searchOptions);
+  // console.log("sdfghjhgfdsdfgh"));
+  searchOptions = [];
+}
+function fetchTrucks() {
+  searchOptions.push("facilitytype=Truck");
+  getData(searchOptions);
+  // console.log("sdfghjhgfdsdfgh"));
+  searchOptions = [];
+}
+
+function fetchOffTheGrid() {
+  searchOptions.push("applicant=Off the Grid Services, LLC");
+  getData(searchOptions);
+  // console.log("sdfghjhgfdsdfgh"));
+  searchOptions = [];
+}
+
+let searchOptions = [];
 let jData;
-function getData() {
-  fetch(url, {
+
+function getData(options) {
+  const url = "https://data.sfgov.org/resource/6a9r-agq8.json?";
+  // debugger;
+  let srch = url + (options ? options.join("&") : "");
+  fetch(srch, {
     method: "GET"
   })
     .then(function(response) {
@@ -54,7 +78,7 @@ function initMap() {
         map: map
       });
       infowindow = new google.maps.InfoWindow();
-      marker.addListener("click", function() {
+      marker.addListener("mouseover", function() {
         infowindow.close();
         infowindow.setContent(truck.applicant);
         infowindow.open(marker.get("map"), marker);
@@ -70,7 +94,7 @@ function initMap() {
     //   // debugger;
   });
 }
-getData();
+getData(searchOptions);
 // if (jData) {
 //   initMap();
 // }
