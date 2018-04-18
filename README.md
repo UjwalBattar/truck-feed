@@ -5,19 +5,17 @@ We live in a data-driven and hungry world. Data, big-data, meta-data.... what?! 
 ## MVPs
 
 * [ ] Fetch data from sfdata.gov
-
-- [ ] Display a map centered in San Francisco
-- [ ] Be able to display data on the map
-- [ ] Filter items & map based on food categories
-- [ ] Filter items & map based on timings
-- [ ] Filter items & map based on locations
-- [ ] Click on pin for more information
+* [ ] Display a map centered in San Francisco
+* [ ] Be able to display data on the map
+* [ ] Filter items & map based on food categories
+* [ ] Filter items & map based on timings
+* [ ] Filter items & map based on locations
 
 ## Over the weekend
 
 * [ ] Learn about using data API's and fetch requests
 * [ ] Scour the internet for data. Especially, Socrata.com(Basis for this idea was crime based and Socrata is a government data company).
-* [ ] You tube tutorial on data, JSON, APIs and javascript
+* [ ] Youtube tutorial on data, JSON, APIs and javascript
 * [ ] Tutorials learning canvas
 * [ ] Research on managing markers on Google maps
 * [ ] Research on customizing google maps (night-mode/ heat-map)
@@ -50,3 +48,4 @@ We live in a data-driven and hungry world. Data, big-data, meta-data.... what?! 
 ## Future
 
 * [ ] Expand past San Francisco
+* [ ] Click on pin for more information
