@@ -4,25 +4,36 @@
     <meta charset="utf-8">
     <script type='text/javascript' src='./config.js'></script>
     <script type='text/javascript' src='./script.js'></script>
+    <link rel="stylesheet" href="./src/style.css" />
     <title>Truck Feed</title>
-    <style>
-       #map {
-        height: 1000px;
-        width: 800px;
-       }
-    </style>
+
+
   </head>
   <body >
     <div id="root"></div>
 
 
     <div id="demo"></div>
-    <script type="text/javascript" src="./src/data.js">
+    <script type="text/javascript" src="./src/lib/data.js">
     </script>
     <div>
-      <button type="button" id="carts" onclick="fetchCarts()">Carts</button>
-      <button type="button" id="trucks" onclick="fetchTrucks()">Trucks</button>
+      <button type="button" id="all" onclick="fetchAll()">All</button>
+      <button type="button" id="carts" onclick="fetchCarts()">Push Carts</button>
+      <button type="button" id="trucks" onclick="fetchTrucks()">Food Trucks</button>
       <button type="button" id="offTheGrid" onclick="fetchOffTheGrid()">Off The Grid</button>
+      <button type="button" id="burrito" onclick="fetchBurrito()">Burritos</button>
+      <button type="button" id="poke" onclick="fetchPoke()">Poke</button>
+      <button type="button" id="hotdog" onclick="fetchHotdog()">Hot Dogs</button>
+      <button type="button" id="burger" onclick="fetchBurger()">Burgers</button>
+      <button type="button" id="fusion" onclick="fetchFusion()">Fusion</button>
+      <button type="button" id="coffee" onclick="fetchCoffee()">Coffee</button>
+      <button type="button" id="icecream" onclick="fetchIcecream()">Ice Cream</button>
+      <button type="button" id="lobster" onclick="fetchLobster()">Lobster</button>
+      <button type="button" id="noodles" onclick="fetchNoodles()">Noodles</button>
+      <button type="button" id="seafood" onclick="fetchSeafood()">Seafood</button>
+      <button type="button" id="sandwich" onclick="fetchSandwich()">Sandwich</button>
+      <button type="button" id="vegetarian" onclick="fetchVegetarian()">Vegetarian</button>
+
 
     </div>
     <div id="map"></div>
