@@ -57,44 +57,10 @@ function getData(options) {
     });
 }
 // CONVERT TO SWITCH STATEMENT
-function fetchBurrito() {
-  initMap(burritos);
+function fetchStands(data) {
+  initMap(data);
 }
 
-function fetchPoke() {
-  initMap(poke);
-}
-
-function fetchHotdog() {
-  initMap(hotdog);
-}
-function fetchBurger() {
-  initMap(burger);
-}
-function fetchFusion() {
-  initMap(fusion);
-}
-function fetchCoffee() {
-  initMap(coffee);
-}
-function fetchIcecream() {
-  initMap(icecream);
-}
-function fetchLobster() {
-  initMap(lobster);
-}
-function fetchNoodles() {
-  initMap(noodles);
-}
-function fetchSeafood() {
-  initMap(seafood);
-}
-function fetchSandwich() {
-  initMap(sandwich);
-}
-function fetchVegetarian() {
-  initMap(vegetarian);
-}
 // CONVERT TO SWITCH STATEMENT
 function fetchAll() {
   searchOptions = [];
@@ -118,6 +84,7 @@ function fetchOffTheGrid() {
   searchOptions = [];
 }
 
+let infowindow;
 function populateMarkers(data) {
   // debugger;
   let latitude;
@@ -141,16 +108,24 @@ function populateMarkers(data) {
 }
 
 let map;
-let infowindow;
-
 function initMap(data) {
-  const mapCenter = { lat: 37.751586275, lng: -122.447721511 };
+  const mapCenter = { lat: 37.74466335, lng: -122.4492648 };
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
+    zoom: 13,
     center: mapCenter
+  });
+  google.maps.event.addListener(map, "click", function(event) {
+    alert(
+      "Latitude: " +
+        event.latLng.lat() +
+        " " +
+        ", longitude: " +
+        event.latLng.lng()
+    );
   });
   populateMarkers(data);
 }
+
 getData(searchOptions);
 
 // google.maps.event.addListener(map, "click", function(event) {

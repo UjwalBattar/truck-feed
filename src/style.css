@@ -1,4 +1,26 @@
 #map {
-  height: 1000px;
-  width: 950px;
+  height: 1200px;
+  width: 1050px;
+  z-index: 1;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  width: 100px;
+  position: relative;
+  /* left: 850px; */
+  bottom: 1000px;
+  background: rgba(0, 0, 0, 0.55);
+  align-items: center;
+}
+
+.filter {
+  margin-bottom: 20px;
+  width: 80px;
+}
+
+#all {
+  margin-top: 20px;
 }
