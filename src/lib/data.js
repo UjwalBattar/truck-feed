@@ -13,6 +13,7 @@ let seafood = [];
 let sandwich = [];
 let vegetarian = [];
 
+let timings = [];
 let searchOptions = [];
 let jData = [];
 
@@ -26,35 +27,8 @@ function getData(options) {
       if (response.ok) {
         response.json().then(function(json) {
           // debugger;
-          // console.log(json[2].fooditems);
-          // jData = json;
           jData = [];
-          json.forEach(truck => {
-            // debugger;
-            if (truck && truck.fooditems) {
-              let food = truck.fooditems.toLowerCase();
-              if (food.includes("burritos")) burritos.push(truck);
-              if (food.includes("poke")) poke.push(truck);
-              if (food.includes("hot dog")) {
-                hotdog.push(truck);
-                // console.log(truck.dayshours);
-              }
-              if (food.includes("burger")) burger.push(truck);
-              if (food.includes("fusion")) fusion.push(truck);
-              if (food.includes("coffee")) coffee.push(truck);
-              if (food.includes("ice cream")) icecream.push(truck);
-              if (food.includes("lobster")) {
-                lobster.push(truck);
-                // console.log(truck.dayshours);
-              }
-
-              if (food.includes("noodle")) noodles.push(truck);
-              if (food.includes("seafood")) seafood.push(truck);
-              if (food.includes("sandwich")) sandwich.push(truck);
-              if (food.includes("vegetarian")) vegetarian.push(truck);
-              jData.push(truck);
-            }
-          });
+          sortData(json);
           initMap(jData);
           truckIndex(jData);
         });
@@ -64,9 +38,39 @@ function getData(options) {
       console.log("Network request failed");
     });
 }
+
+function sortData(data) {
+  data.forEach(truck => {
+    // debugger;
+    if (truck && truck.fooditems) {
+      let food = truck.fooditems.toLowerCase();
+      if (food.includes("burritos")) burritos.push(truck);
+      if (food.includes("poke")) poke.push(truck);
+      if (food.includes("hot dog")) {
+        hotdog.push(truck);
+        timings.push(truck.dayshours);
+      }
+      if (food.includes("burger")) burger.push(truck);
+      if (food.includes("fusion")) fusion.push(truck);
+      if (food.includes("coffee")) coffee.push(truck);
+      if (food.includes("ice cream")) icecream.push(truck);
+      if (food.includes("lobster")) {
+        lobster.push(truck);
+      }
+
+      if (food.includes("noodle")) noodles.push(truck);
+      if (food.includes("seafood")) seafood.push(truck);
+      if (food.includes("sandwich")) sandwich.push(truck);
+      if (food.includes("vegetarian")) vegetarian.push(truck);
+      jData.push(truck);
+    }
+  });
+  // debugger;
+}
 // CONVERT TO SWITCH STATEMENT
 function fetchStands(data) {
   initMap(data);
+  // debugger;
   truckIndex(data);
 }
 
@@ -79,6 +83,10 @@ const truckIndex = data => {
 
   const ulTrucks = document.createElement("ul");
   ulTrucks.className = "truck-ul";
+  const h1 = document.createElement("h1");
+  h1.className = "list-header";
+  h1.innerHTML = "List o' Trucks";
+  truckFeed.append(h1);
   data.forEach(truckJSON => {
     const liTruck = document.createElement("li");
     liTruck.className = `truck-li`;
@@ -87,7 +95,10 @@ const truckIndex = data => {
     const p2 = document.createElement("p");
     const p3 = document.createElement("p");
     h3.innerHTML = `${truckJSON.applicant}`;
-    p1.innerHTML = `${truckJSON.dayshours}`;
+    p1.innerHTML =
+      truckJSON.dayshours === undefined
+        ? "Currently Unavailable"
+        : `${truckJSON.dayshours}`;
     p2.innerHTML = `${truckJSON.fooditems}`;
     p3.innerHTML = `${truckJSON.address}`;
     liTruck.appendChild(h3);
@@ -149,9 +160,12 @@ function populateMarkers(data) {
 }
 
 function setMapOnAll(map) {
-  for (let i = 0; i < Object.keys(markers).length; i++) {
-    markers[i].setMap(map);
-  }
+  Object.values(markers).forEach(marker => {
+    marker.setMap(map);
+  });
+}
+function clearAllMarkers() {
+  setMapOnAll(null);
 }
 
 let map;
