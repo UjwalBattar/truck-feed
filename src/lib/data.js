@@ -37,7 +37,7 @@ function getData(options) {
               if (food.includes("poke")) poke.push(truck);
               if (food.includes("hot dog")) {
                 hotdog.push(truck);
-                console.log(truck.dayshours);
+                // console.log(truck.dayshours);
               }
               if (food.includes("burger")) burger.push(truck);
               if (food.includes("fusion")) fusion.push(truck);
@@ -123,6 +123,7 @@ function fetchOffTheGrid() {
 }
 
 let infowindow;
+let markers = {};
 function populateMarkers(data) {
   // debugger;
   let latitude;
@@ -142,7 +143,15 @@ function populateMarkers(data) {
       infowindow.setContent(truck.applicant);
       infowindow.open(marker.get("map"), marker);
     });
+    markers[truck.objectid] = marker;
   });
+  // debugger;
+}
+
+function setMapOnAll(map) {
+  for (let i = 0; i < Object.keys(markers).length; i++) {
+    markers[i].setMap(map);
+  }
 }
 
 let map;
