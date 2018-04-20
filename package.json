@@ -1,0 +1,26 @@
+{
+  "name": "truckfeed",
+  "version": "1.0.0",
+  "description": "We live in a data-driven and hungry world. Data, big-data, meta-data.... what?! Truck Feed is a resource to provide you the locations of all the food trucks in San Francisco for your data hungry self! The map has a simple interface where you can filter food truck locations based on some popular food categories, timings and locations.",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UjwalBattar/truck-feed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UjwalBattar/truck-feed/issues"
+  },
+  "homepage": "https://github.com/UjwalBattar/truck-feed#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^3.10.0"
+  }
+}

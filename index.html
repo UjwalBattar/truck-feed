@@ -6,40 +6,36 @@
     <script type='text/javascript' src='./script.js'></script>
     <link rel="stylesheet" href="./src/style.css" />
     <title>Truck Feed</title>
-
-
   </head>
-  <body >
-    <div id="root"></div>
-
-
-    <div id="demo"></div>
+  <body>
     <script type="text/javascript" src="./src/lib/data.js">
     </script>
-    <div class="map-filter">
-      <div id="map"></div>
-
-      <div class="filter-buttons">
-        <button class="filter" type="button" id="all" onclick="fetchAll()">All</button>
-        <button class="filter" type="button" id="carts" onclick="fetchCarts()">Push Carts</button>
-        <button class="filter" type="button" id="trucks" onclick="fetchTrucks()">Food Trucks</button>
-        <button class="filter" type="button" id="offTheGrid" onclick="fetchOffTheGrid()">Off The Grid</button>
-        <button class="filter" type="button" id="burrito" onclick="fetchStands(burritos)">Burritos</button>
-        <button class="filter" type="button" id="poke" onclick="fetchStands(poke)">Poke</button>
-        <button class="filter" type="button" id="hotdog" onclick="fetchStands(hotdog)">Hot Dogs</button>
-        <button class="filter" type="button" id="burger" onclick="fetchStands(burger)">Burgers</button>
-        <button class="filter" type="button" id="fusion" onclick="fetchStands(fusion)">Fusion</button>
-        <button class="filter" type="button" id="coffee" onclick="fetchStands(coffee)">Coffee</button>
-        <button class="filter" type="button" id="icecream" onclick="fetchStands(icecream)">Ice Cream</button>
-        <button class="filter" type="button" id="lobster" onclick="fetchStands(lobster)">Lobster</button>
-        <button class="filter" type="button" id="noodles" onclick="fetchStands(noodles)">Noodles</button>
-        <button class="filter" type="button" id="seafood" onclick="fetchStands(seafood)">Seafood</button>
-        <button class="filter" type="button" id="sandwich" onclick="fetchStands(sandwich)">Sandwich</button>
-        <button class="filter" type="button" id="vegetarian" onclick="fetchStands(vegetarian)">Vegetarian</button>
+    <div class="map-feed">
+      <div class="map-filter">
+        <div class="filter-buttons">
+          <button class="filter" type="button" id="all" onclick="fetchAll()">All</button>
+          <button class="filter" type="button" id="carts" onclick="fetchCarts()">Push Carts</button>
+          <button class="filter" type="button" id="trucks" onclick="fetchTrucks()">Food Trucks</button>
+          <button class="filter" type="button" id="offTheGrid" onclick="fetchOffTheGrid()">Off The Grid</button>
+          <button class="filter" type="button" id="burrito" onclick="fetchStands(burritos)">Burritos</button>
+          <button class="filter" type="button" id="poke" onclick="fetchStands(poke)">Poke</button>
+          <button class="filter" type="button" id="hotdog" onclick="fetchStands(hotdog)">Hot Dogs</button>
+          <button class="filter" type="button" id="burger" onclick="fetchStands(burger)">Burgers</button>
+          <button class="filter" type="button" id="fusion" onclick="fetchStands(fusion)">Fusion</button>
+          <button class="filter" type="button" id="coffee" onclick="fetchStands(coffee)">Coffee</button>
+          <button class="filter" type="button" id="icecream" onclick="fetchStands(icecream)">Ice Cream</button>
+          <button class="filter" type="button" id="lobster" onclick="fetchStands(lobster)">Lobster</button>
+          <button class="filter" type="button" id="noodles" onclick="fetchStands(noodles)">Noodles</button>
+          <button class="filter" type="button" id="seafood" onclick="fetchStands(seafood)">Seafood</button>
+          <button class="filter" type="button" id="sandwich" onclick="fetchStands(sandwich)">Sandwich</button>
+          <button class="filter" type="button" id="vegetarian" onclick="fetchStands(vegetarian)">Vegetarian</button>
+          <button class="open-now" type="button" id="vegetarian" onclick="fetchStands(vegetarian)">OPEN NOW!</button>
+        </div>
+        <div id="map"></div>
       </div>
-    </div>
-    <div id="truck-feed">
+      <div id="truck-feed">
 
+      </div>
     </div>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=" + mapKey >
@@ -47,3 +43,9 @@
 
   </body>
 </html>
+
+
+<!-- <div id="root"></div>
+
+
+<div id="demo"></div> -->

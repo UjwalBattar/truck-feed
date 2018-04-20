@@ -14,7 +14,7 @@ let sandwich = [];
 let vegetarian = [];
 
 let searchOptions = [];
-let jData;
+let jData = [];
 
 function getData(options) {
   const url = "https://data.sfgov.org/resource/6a9r-agq8.json?";
@@ -27,28 +27,36 @@ function getData(options) {
         response.json().then(function(json) {
           // debugger;
           // console.log(json[2].fooditems);
-          jData = json;
-
-          jData.forEach(truck => {
+          // jData = json;
+          jData = [];
+          json.forEach(truck => {
             // debugger;
             if (truck && truck.fooditems) {
               let food = truck.fooditems.toLowerCase();
               if (food.includes("burritos")) burritos.push(truck);
               if (food.includes("poke")) poke.push(truck);
-              if (food.includes("hot dog")) hotdog.push(truck);
+              if (food.includes("hot dog")) {
+                hotdog.push(truck);
+                console.log(truck.dayshours);
+              }
               if (food.includes("burger")) burger.push(truck);
               if (food.includes("fusion")) fusion.push(truck);
               if (food.includes("coffee")) coffee.push(truck);
               if (food.includes("ice cream")) icecream.push(truck);
-              if (food.includes("lobster")) lobster.push(truck);
+              if (food.includes("lobster")) {
+                lobster.push(truck);
+                // console.log(truck.dayshours);
+              }
+
               if (food.includes("noodle")) noodles.push(truck);
               if (food.includes("seafood")) seafood.push(truck);
               if (food.includes("sandwich")) sandwich.push(truck);
               if (food.includes("vegetarian")) vegetarian.push(truck);
+              jData.push(truck);
             }
           });
-
           initMap(jData);
+          truckIndex(jData);
         });
       }
     })
@@ -59,8 +67,38 @@ function getData(options) {
 // CONVERT TO SWITCH STATEMENT
 function fetchStands(data) {
   initMap(data);
+  truckIndex(data);
 }
 
+const truckIndex = data => {
+  const truckFeed = document.getElementById("truck-feed");
+
+  while (truckFeed.firstChild) {
+    truckFeed.firstChild.remove();
+  }
+
+  const ulTrucks = document.createElement("ul");
+  ulTrucks.className = "truck-ul";
+  data.forEach(truckJSON => {
+    const liTruck = document.createElement("li");
+    liTruck.className = `truck-li`;
+    const h3 = document.createElement("h3");
+    const p1 = document.createElement("p");
+    const p2 = document.createElement("p");
+    const p3 = document.createElement("p");
+    h3.innerHTML = `${truckJSON.applicant}`;
+    p1.innerHTML = `${truckJSON.dayshours}`;
+    p2.innerHTML = `${truckJSON.fooditems}`;
+    p3.innerHTML = `${truckJSON.address}`;
+    liTruck.appendChild(h3);
+    liTruck.appendChild(p1);
+    liTruck.appendChild(p2);
+    liTruck.appendChild(p3);
+
+    ulTrucks.appendChild(liTruck);
+  });
+  truckFeed.append(ulTrucks);
+};
 // CONVERT TO SWITCH STATEMENT
 function fetchAll() {
   searchOptions = [];
