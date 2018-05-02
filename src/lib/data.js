@@ -65,6 +65,7 @@ function sortData(data) {
       jData.push(truck);
     }
   });
+  console.log(timings);
   // debugger;
 }
 // CONVERT TO SWITCH STATEMENT
