@@ -127,4 +127,3 @@ const foodFacts = ["Geomelophagia is someone who has the urge to eat raw potatoe
 "Pasta can be given to dogs and cats. Its believed in helps them in their growth development and to help their coats glossy and healthy.",
 "The National Pasta Association is a worldwide group which enjoys eating and discussing pasta, and its history.",
 "October is National Pasta Month."]
-console.log((foodFacts));

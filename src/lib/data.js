@@ -28,7 +28,6 @@ function getData(options) {
     .then(function(response) {
       if (response.ok) {
         response.json().then(function(json) {
-          // debugger;
           jData = [];
           sortData(json);
           initMap(jData);
@@ -43,7 +42,6 @@ function getData(options) {
 
 function sortData(data) {
   data.forEach(truck => {
-    // debugger;
     if (truck && truck.fooditems) {
       let food = truck.fooditems.toLowerCase();
       if (truck.facilitytype === "Push Cart") carts.push(truck);
@@ -107,33 +105,10 @@ const truckIndex = data => {
   });
   truckFeed.append(ulTrucks);
 };
-// CONVERT TO SWITCH STATEMENT
-// function fetchAll(data) {
-//   console.log(data.length);
-//   fetchStands(data);
-//   searchOptions = [];
-// }
-// function fetchCarts() {
-//   searchOptions.push("facilitytype=Push Cart");
-//   getData(searchOptions);
-//   searchOptions = [];
-// }
-// function fetchTrucks() {
-//   searchOptions.push("facilitytype=Truck");
-//   getData(searchOptions);
-//
-//   searchOptions = [];
-// }
-// function fetchOffTheGrid() {
-//   searchOptions.push("applicant=Off the Grid Services, LLC");
-//   getData(searchOptions);
-//   searchOptions = [];
-// }
 
 let infowindow;
 let markers = {};
 function populateMarkers(data) {
-  // debugger;
   let latitude;
   let longitude;
   data.forEach(truck => {
@@ -153,7 +128,6 @@ function populateMarkers(data) {
     });
     markers[truck.objectid] = marker;
   });
-  // debugger;
 }
 
 function setMapOnAll(map) {
