@@ -13,9 +13,7 @@
       <div class="header">
         <h1 class="heading">TRUCK FEED!</h1>
         <p class="description">
-          Super busy? Love food trucks? Wonder which ones are open now? Is Off the Grid your favorite option to eat out?
-          <br/>
-          Truck feed is a quick and convenient way to see available and open food trucks in San Francisco and get you fed ASAP!
+          Truck feed is a quick and convenient way to see available and open food trucks in San Francisco to get you fed ASAP!
           <br/><br/>
         </p>
       </div>
@@ -26,10 +24,10 @@
     <div class="map-feed">
       <div class="map-filter">
         <div class="filter-buttons">
-          <button class="filter" type="button" id="all" onclick="fetchAll()">All</button>
-          <button class="filter" type="button" id="carts" onclick="fetchCarts()">Push Carts</button>
-          <button class="filter" type="button" id="trucks" onclick="fetchTrucks()">Food Trucks</button>
-          <button class="filter" type="button" id="offTheGrid" onclick="fetchOffTheGrid()">Off The Grid</button>
+          <button class="filter" type="button" id="all" onclick="fetchStands(jData)">All</button>
+          <button class="filter" type="button" id="carts" onclick="fetchStands(carts)">Push Carts</button>
+          <button class="filter" type="button" id="trucks" onclick="fetchStands(trucks)">Food Trucks</button>
+          <button class="filter" type="button" id="offTheGrid" onclick="fetchStands(offTheGrid)">Off The Grid</button>
           <button class="filter" type="button" id="burrito" onclick="fetchStands(burritos)">Burritos</button>
           <button class="filter" type="button" id="poke" onclick="fetchStands(poke)">Poke</button>
           <button class="filter" type="button" id="hotdog" onclick="fetchStands(hotdog)">Hot Dogs</button>

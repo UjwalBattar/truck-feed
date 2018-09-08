@@ -1,5 +1,7 @@
 /* global google:false */
-
+let trucks = [];
+let carts = [];
+let offTheGrid = [];
 let burritos = [];
 let poke = [];
 let hotdog = [];
@@ -44,20 +46,17 @@ function sortData(data) {
     // debugger;
     if (truck && truck.fooditems) {
       let food = truck.fooditems.toLowerCase();
+      if (truck.facilitytype === "Push Cart") carts.push(truck);
+      if (truck.facilitytype === "Truck") trucks.push(truck);
+      if (truck.applicant === "Off the Grid Services, LLC") offTheGrid.push(truck);
       if (food.includes("burritos")) burritos.push(truck);
       if (food.includes("poke")) poke.push(truck);
-      if (food.includes("hot dog")) {
-        hotdog.push(truck);
-        timings.push(truck.dayshours);
-      }
+      if (food.includes("hot dog")) hotdog.push(truck);
       if (food.includes("burger")) burger.push(truck);
       if (food.includes("fusion")) fusion.push(truck);
       if (food.includes("coffee")) coffee.push(truck);
       if (food.includes("ice cream")) icecream.push(truck);
-      if (food.includes("lobster")) {
-        lobster.push(truck);
-      }
-
+      if (food.includes("lobster")) lobster.push(truck);
       if (food.includes("noodle")) noodles.push(truck);
       if (food.includes("seafood")) seafood.push(truck);
       if (food.includes("sandwich")) sandwich.push(truck);
@@ -65,13 +64,10 @@ function sortData(data) {
       jData.push(truck);
     }
   });
-  console.log(timings);
-  // debugger;
 }
-// CONVERT TO SWITCH STATEMENT
+
 function fetchStands(data) {
   initMap(data);
-  // debugger;
   truckIndex(data);
 }
 
@@ -112,27 +108,27 @@ const truckIndex = data => {
   truckFeed.append(ulTrucks);
 };
 // CONVERT TO SWITCH STATEMENT
-function fetchAll() {
-  searchOptions = [];
-  getData(searchOptions);
-  searchOptions = [];
-}
-function fetchCarts() {
-  searchOptions.push("facilitytype=Push Cart");
-  getData(searchOptions);
-  searchOptions = [];
-}
-function fetchTrucks() {
-  searchOptions.push("facilitytype=Truck");
-  getData(searchOptions);
-
-  searchOptions = [];
-}
-function fetchOffTheGrid() {
-  searchOptions.push("applicant=Off the Grid Services, LLC");
-  getData(searchOptions);
-  searchOptions = [];
-}
+// function fetchAll(data) {
+//   console.log(data.length);
+//   fetchStands(data);
+//   searchOptions = [];
+// }
+// function fetchCarts() {
+//   searchOptions.push("facilitytype=Push Cart");
+//   getData(searchOptions);
+//   searchOptions = [];
+// }
+// function fetchTrucks() {
+//   searchOptions.push("facilitytype=Truck");
+//   getData(searchOptions);
+//
+//   searchOptions = [];
+// }
+// function fetchOffTheGrid() {
+//   searchOptions.push("applicant=Off the Grid Services, LLC");
+//   getData(searchOptions);
+//   searchOptions = [];
+// }
 
 let infowindow;
 let markers = {};
