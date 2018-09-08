@@ -1,23 +1,22 @@
 /* global google:false */
-let trucks = [];
-let carts = [];
-let offTheGrid = [];
-let burritos = [];
-let poke = [];
-let hotdog = [];
-let burger = [];
-let fusion = [];
-let coffee = [];
-let icecream = [];
-let lobster = [];
-let noodles = [];
-let seafood = [];
-let sandwich = [];
-let vegetarian = [];
-
-let timings = [];
-let searchOptions = [];
-let jData = [];
+var allTrucks = [];
+const trucks = [];
+const carts = [];
+const offTheGrid = [];
+const burritos = [];
+const poke = [];
+const hotdog = [];
+const burger = [];
+const fusion = [];
+const coffee = [];
+const icecream = [];
+const lobster = [];
+const noodles = [];
+const seafood = [];
+const sandwich = [];
+const vegetarian = [];
+const searchOptions = [];
+const timings = [];
 
 function getData(options) {
   const url = "https://data.sfgov.org/resource/6a9r-agq8.json?";
@@ -28,10 +27,10 @@ function getData(options) {
     .then(function(response) {
       if (response.ok) {
         response.json().then(function(json) {
-          jData = [];
+          allTrucks = [];
           sortData(json);
-          initMap(jData);
-          truckIndex(jData);
+          initMap(allTrucks);
+          truckIndex(allTrucks);
         });
       }
     })
@@ -42,11 +41,13 @@ function getData(options) {
 
 function sortData(data) {
   data.forEach(truck => {
-    if (truck && truck.fooditems) {
+    if (truck && truck.fooditems && truck.status !== "REQUESTED") {
       let food = truck.fooditems.toLowerCase();
       if (truck.facilitytype === "Push Cart") carts.push(truck);
       if (truck.facilitytype === "Truck") trucks.push(truck);
-      if (truck.applicant === "Off the Grid Services, LLC") offTheGrid.push(truck);
+      if (truck.applicant === "Off the Grid Services, LLC") {
+        offTheGrid.push(truck);
+      }
       if (food.includes("burritos")) burritos.push(truck);
       if (food.includes("poke")) poke.push(truck);
       if (food.includes("hot dog")) hotdog.push(truck);
@@ -59,7 +60,7 @@ function sortData(data) {
       if (food.includes("seafood")) seafood.push(truck);
       if (food.includes("sandwich")) sandwich.push(truck);
       if (food.includes("vegetarian")) vegetarian.push(truck);
-      jData.push(truck);
+      allTrucks.push(truck);
     }
   });
 }
