@@ -147,15 +147,15 @@ function initMap(data) {
     zoom: 13,
     center: mapCenter
   });
-  google.maps.event.addListener(map, "click", function(event) {
-    alert(
-      "Latitude: " +
-        event.latLng.lat() +
-        " " +
-        ", longitude: " +
-        event.latLng.lng()
-    );
-  });
+  // google.maps.event.addListener(map, "click", function(event) {
+  //   alert(
+  //     "Latitude: " +
+  //       event.latLng.lat() +
+  //       " " +
+  //       ", longitude: " +
+  //       event.latLng.lng()
+  //   );
+  // });
   populateMarkers(data);
 }
 
