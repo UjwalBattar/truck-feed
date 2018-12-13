@@ -19,9 +19,10 @@ body {
 }
 .heading {
   margin-bottom: -20px;
+  color: #f7faff;
 }
 .description {
-  /* color: #293241; */
+  color: #f7faff;
 }
 #map {
   position: absolute;
@@ -96,7 +97,7 @@ body {
 .list-header {
   text-align: center;
   font-size: 45px;
-  /* color: #293241; */
+  color: #f7faff;
 }
 
 .truck-ul {
